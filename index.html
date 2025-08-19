@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aluminium Designs</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Add some basic styles for the hidden products */
+    .hidden {
+      display: none;
+    }
+    /* Modal styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto; /* 15% from the top and centered */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%; /* Could be more or less, depending on screen size */
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<header>
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <img src="logo1.jpg" alt="Aluminium Designs Logo">
+    </a>
+    <ul class="menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="About.html">Contact Us</a></li>
+    </ul>
+    <input type="text" class="search-bar" placeholder="Search...">
+  </nav>
+</header>
+
+<body>
+  
+    <h1>All Building Services Provided By Our Company.</h1>
+    <p>Your one-stop solution for all building-related needs.
+From custom installations to on-site consulting, we bring your construction visions to life at an affordable price.
+Below are the highlights of what we offer.</p>
+
+    <div class="section_container header_container">
+      <section class="featured-product">
+        <h2>Our services</h2>
+        <div class="product-grid">
+          <div class="product">
+            <img src="2.jpeg.jpg" alt="Aluminium Windows">
+            <h3>Windows Fitting</h3>
+            <p>We fit durable, stylish aluminium windows that enhance your building’s aesthetics.</p>
+            <button onclick="openModal('Windows Fitting', 'We fit durable, stylish aluminium windows that enhance your building’s aesthetics.', '2.jpeg.jpg')">View More</button>
+          </div>
+
+          <div class="product">
+            <img src="4.jpg" alt="Aluminium Doors">
+            <h3>Doors Installation</h3>
+            <p>Secure and elegant door fittings tailored to your space and safety requirements.</p>
+            <button onclick="openModal('Doors Installation', 'Secure and elegant door fittings tailored to your space and safety requirements.', '4.jpg')">View More</button>
+          </div>
+
+          <div class="product">
+            <img src="7.jpg" alt="Aluminium Railings">
+            <h3>Folding Doors Fittings</h3>
+            <p>Professionally installed aluminium folding doors for flexible, modern interiors.</p>
+            <button onclick="openModal('Folding Doors Fittings', 'Professionally installed aluminium folding doors for flexible, modern interiors.', '7.jpg')">View More</button>
+          </div>
+
+          <div class="product">
+            <img src="5.jpg" alt="Custom Aluminium Designs">
+            <h3>Shower School Fittings</h3>
+            <p>For all your modern bathrooms, we got your back.</p>
+            <button onclick="openModal('Shower School Fittings', 'For all your modern bathrooms, we got your back.', '5.jpg')">View More</button>
+          </div>
+
+          <!-- Hidden products that will be shown when the button is clicked -->
+          <div class="product hidden" id="more-products-1">
+            <img src="sky lights1.jpg" alt="Sky Lights">
+            <h3>Sky Lights</h3>
+            <p>We also install these available in different designs.</p>
+            <button onclick="openModal('Sky Lights', 'We also install these available in different designs.', 'sky lights1.jpg')">View More</button>
+          </div>
+
+          <div class="product hidden" id="more-products-2">
+            <img src="roofing.jpg" alt="Roofing">
+            <h3>Roofing</h3>
+            <p>We don't just do aluminium windows, doors, etc. We also do the actual building from foundation up to roofing.</p>
+            <button onclick="openModal('Roofing', 'We don\'t just do aluminium windows, doors, etc. We also do the actual building from foundation up to roofing.', 'roofing.jpg')">View More</button>
+          </div>
+
+          <div class="product hidden" id="more-products-3">
+            <img src="fitted wardrobe.jpg" alt="Fitted Wardrobe">
+            <h3>Fitted Wardrobe</h3>
+            <p>We do your fitted wardrobes, kitchen units, I mean all the home fittings!</p>
+            <button onclick="openModal('Fitted Wardrobe', 'We do your fitted wardrobes, kitchen units, I mean all the home fittings!!!', 'fitted wardrobe.jpg')">View More</button>
+          </div>
+          <div class="product hidden" id="more-products-3">
+            <img src="fitted wardrobe.jpg" alt="Fitted Wardrobe">
+            <h3>House Tubing</h3>
+            <p>We also do tubing . Infact we have everything your house needs to be complete.</p>
+            <button onclick="openModal('Fitted Wardrobe', 'We do your fitted wardrobes, kitchen units, I mean all the home fittings!!!', 'fitted wardrobe.jpg')">View More</button>
+          </div>
+        </div>
+        <button onclick="showMoreServices()" class="view-all">See More Services</button>
+      </section>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="productModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <img id="modalImage" src="" alt="" style="width:100%; height:auto;">
+        <p id="modalDescription"></p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3> Where innovation meets quality. Get in touch with us via :</h3>
+        
+          <a class="contact-link" href="tel:‪+263776957182‬">📞 Call Us</a>
+  <a class="contact-link" href="https://wa.me/263776957182" target="_blank">💬 WhatsApp</a>
+  <a class="contact-link" href="https://www.facebook.com/Confidence_Munerei" target="_blank">👍 Facebook</a>
+  <a class="contact-link" href="https://tiktok.com/@Confidence_Munerei" target="_blank">🎵 TikTok</a>
+  <style>
+    .link{
+      display:block;
+    }
+   
+  </style>
+      </div>
+    </footer>
+
+    <script>
+      function showMoreServices() {
+        // Get all hidden products
+        const hiddenProducts = document.querySelectorAll('.hidden');
+        hiddenProducts.forEach(product => {
+          product.classList.remove('hidden'); // Remove the hidden class to show the product
+        });
+      }
+
+      function openModal(title, description, image) {
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalDescription').innerText = description;
+        document.getElementById('modalImage').src = image;
+        document.getElementById('productModal').style.display = "block"; // Show the modal
+      }
+
+      function closeModal() {
+        document.getElementById('productModal').style.display = "none"; // Hide the modal
+      }
+
+      // Close the modal when clicking outside of it
+      window.onclick = function(event) {
+        const modal = document.getElementById('productModal');
+        if (event.target == modal) {
+          closeModal();
+        }
+      }
+    </script>
+</body>
+</html>
